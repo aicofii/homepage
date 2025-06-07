@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">ERP System - Apolo-net</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <!-- Language Switcher -->
+  <div class="fixed top-4 right-4 z-50">
+    <select id="language-switcher" class="bg-gray-800 text-white p-2 rounded-lg">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="zh">中文</option>
+    </select>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-80"></div>
+    <canvas id="particles" class="absolute inset-0 z-0"></canvas>
+    <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-background-of-moving-and-spinning-figures-1754-large.mp4" type="video/mp4">
+    </video>
+    <div class="relative z-10 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold mb-4" data-i18n="company-name">Apolo-net</h2>
+      <h1 class="text-5xl md:text-7xl font-bold mb-4"><span id="typed"></span></h1>
+      <p class="text-xl md:text-2xl mb-8 animate-fade-in" data-i18n="hero-subtitle">Innovative Technology Solutions for a Connected Future</p>
+      <a href="#plans" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-full text-lg transition duration-300" data-i18n="hero-cta">Get Started</a>
+    </div>
+  </header>
+
+  <!-- Company Introduction -->
+  <section id="company" class="py-16 px-4 md:px-16 bg-gray-800">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 animate-slide-up" data-i18n="company-title">About Us</h2>
+      <p class="text-lg mb-6" data-i18n="company-description">We are a leading technology company delivering innovative, scalable solutions to empower businesses in a connected world.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer fade-in" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="company-feature1-title">Innovation</h3>
+          <p data-i18n="company-feature1-description">Leading the industry with groundbreaking technology.</p>
+        </div>
+        <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer fade-in" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="company-feature2-title">Reliability</h3>
+          <p data-i18n="company-feature2-description">Trusted by businesses worldwide for consistent performance.</p>
+        </div>
+        <div class="feature-card bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer fade-in" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="company-feature3-title">Support</h3>
+          <p data-i18n="company-feature3-description">24/7 customer support to ensure your success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Introduction -->
+  <section id="products" class="py-16 px-4 md:px-16 bg-gray-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 animate-slide-up" data-i18n="products-title">Our ERP Solutions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="product-card bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="product1-title">Inventory Management</h3>
+          <p data-i18n="product1-description">Streamline your inventory with real-time tracking and analytics.</p>
+        </div>
+        <div class="product-card bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="product2-title">Financial Tools</h3>
+          <p data-i18n="product2-description">Manage finances with precision and automated reporting.</p>
+        </div>
+        <div class="product-card bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="product3-title">HR Module</h3>
+          <p data-i18n="product3-description">Simplify HR processes with integrated payroll and employee management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purchasing Plans -->
+  <section id="plans" class="py-16 px-4 md:px-16 bg-gray-800">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 animate-slide-up" data-i18n="plans-title">Choose Your Plan</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-700 rounded-lg plan-card" style="animation-delay: 0.1s;">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="plan1-title">Basic</h3>
+          <p class="text-3xl font-bold mb-4">$99/month</p>
+          <ul class="text-left mb-6">
+            <li data-i18n="plan1-feature1">Core ERP Features</li>
+            <li data-i18n="plan1-feature2">Up to 10 Users</li>
+            <li data-i18n="plan1-feature3">Basic Support</li>
+          </ul>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full pulse" data-i18n="plan1-cta">Select Plan</a>
+        </div>
+        <div class="p-6 bg-blue-600 rounded-lg plan-card" style="animation-delay: 0.2s;">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="plan2-title">Pro</h3>
+          <p class="text-3xl font-bold mb-4">$199/month</p>
+          <ul class="text-left mb-6">
+            <li data-i18n="plan2-feature1">All Basic Features</li>
+            <li data-i18n="plan2-feature2">Up to 50 Users</li>
+            <li data-i18n="plan2-feature3">Priority Support</li>
+          </ul>
+          <a href="#" class="bg-white text-blue-600 hover:bg-gray-200 py-2 px-4 rounded-full pulse" data-i18n="plan2-cta">Select Plan</a>
+        </div>
+        <div class="p-6 bg-gray-700 rounded-lg plan-card" style="animation-delay: 0.3s;">
+          <h3 class="text-2xl font-semibold mb-4" data-i18n="plan3-title">Enterprise</h3>
+          <p class="text-3xl font-bold mb-4" data-i18n="plan3-price">Custom</p>
+          <ul class="text-left mb-6">
+            <li data-i18n="plan3-feature1">All Pro Features</li>
+            <li data-i18n="plan3-feature2">Unlimited Users</li>
+            <li data-i18n="plan3-feature3">Dedicated Support</li>
+          </ul>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full pulse" data-i18n="plan3-cta">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 bg-gray-900 text-center">
+    <p data-i18n="footer-copyright">© 2025 Apolo-net. All rights reserved.</p>
+    <p class="mt-2">Contact us: <a href="mailto:support@apolo-net.com" class="text-blue-400">support@apolo-net.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
