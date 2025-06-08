@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
 body {
   font-family: 'Inter', sans-serif;
 }
@@ -93,4 +95,39 @@ section {
 
 .pulse {
   animation: pulse 2s infinite;
+}
+
+/* 新增样式：为 About, Products, Plans 标题设置科技感字体 */
+#company h2, #products h2, #products2 h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Modal styles */
+#contact-modal {
+  transition: opacity 0.3s ease;
+  z-index: 100; /* 确保覆盖 header 和 nav 的 z-index: 10 */
+}
+
+#contact-modal .bg-gray-800 {
+  background: linear-gradient(135deg, rgba(0, 71, 171, 0.9), rgba(128, 0, 255, 0.9), rgba(0, 229, 255, 0.5));
+  box-shadow: 0 10px 20px rgba(0, 229, 255, 0.5);
+}
+
+#contact-modal ul li {
+  margin-bottom: 0.5rem;
+}
+
+#contact-modal ul li::before {
+  content: '•';
+  color: rgba(0, 229, 255, 1);
+  margin-right: 0.5rem;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
