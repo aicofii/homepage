@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-whatsapp': 'WhatsApp: +34 987 654 321',
       'contact-wechat': 'WeChat: ApoloNet_Official',
       'footer-copyright': '© 2025 Apolo-net. All rights reserved.',
+      'nav-about': 'About',
+      'nav-technology': 'Technology',
+      'nav-products': 'Our Products',
       typed: ['Revolutionize Your Business', 'Empower Your Enterprise', 'Scale with Confidence']
     },
     es: {
@@ -73,6 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-whatsapp': 'WhatsApp: +34 987 654 321',
       'contact-wechat': 'WeChat: ApoloNet_Official',
       'footer-copyright': '© 2025 Apolo-net. Todos los derechos reservados.',
+      'nav-about': 'Sobre Nosotros',
+      'nav-technology': 'Tecnología',
+      'nav-products': 'Nuestros Productos',
       typed: ['Revoluciona Tu Negocio', 'Empodera Tu Empresa', 'Escala con Confianza']
     },
     zh: {
@@ -110,6 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
       'contact-whatsapp': 'WhatsApp: +34 987 654 321',
       'contact-wechat': '微信: ApoloNet_Official',
       'footer-copyright': '© 2025 阿波罗网络。保留所有权利。',
+      'nav-about': '关于我们',
+      'nav-technology': '我们的技术',
+      'nav-products': '我们的产品',
       typed: ['变革您的业务', '赋能您的企业', '自信扩展']
     }
   };
