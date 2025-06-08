@@ -2,6 +2,8 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .product-card, .feature-card {
@@ -108,7 +110,7 @@ section {
 /* Modal styles */
 #contact-modal {
   transition: opacity 0.3s ease;
-  z-index: 100; /* 确保覆盖 header 和 nav 的 z-index: 10 */
+  z-index: 100;
 }
 
 #contact-modal .bg-gray-800 {
@@ -130,4 +132,121 @@ section {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  /* 调整 header 内容 */
+  header {
+    min-height: 70vh;
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  header .bg-gradient-to-r {
+    background: linear-gradient(135deg, rgba(0, 71, 171, 0.9), rgba(128, 0, 255, 0.9), rgba(0, 229, 255, 0.6));
+  }
+
+  /* 导航栏调整 */
+  nav .max-w-7xl {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav .flex {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  nav a, nav select {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  /* 卡片布局调整 */
+  .product-card, .feature-card {
+    transform: none;
+  }
+
+  .product-card:hover, .feature-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 10px rgba(0, 229, 255, 0.3);
+  }
+
+  /* 调整 section 间距和字体 */
+  section {
+    padding: 2rem 1rem;
+    scroll-margin-top: 60px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+
+  /* 调整 grid 布局 */
+  #company .grid, #products .grid, #products2 .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* 模态框调整 */
+  #contact-modal .max-w-md {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  #contact-modal h2 {
+    font-size: 1.5rem;
+  }
+
+  #contact-modal ul {
+    font-size: 1rem;
+  }
+
+  /* 页脚调整 */
+  footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  header button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  .product-card h3, .feature-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .product-card p, .feature-card p {
+    font-size: 0.9rem;
+  }
 }
