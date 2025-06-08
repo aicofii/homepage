@@ -155,7 +155,7 @@ section {
     background: linear-gradient(135deg, rgba(0, 71, 171, 0.9), rgba(128, 0, 255, 0.9), rgba(0, 229, 255, 0.6));
   }
 
-  /* 导航栏调整，优化 About, Technology, Our Products 和语言选择框布局 */
+  /* 导航栏调整 */
   nav .max-w-7xl {
     flex-direction: column;
     align-items: flex-start;
@@ -171,15 +171,6 @@ section {
   nav a, nav select {
     margin: 0.5rem 0;
     font-size: 1rem;
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-
-  #language-switcher {
-    width: 100%;
-    margin-top: 0.5rem;
-    padding: 0.5rem;
   }
 
   /* 卡片布局调整 */
