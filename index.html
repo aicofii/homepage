@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ERP System - Apolo-net</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-gray-100">
-  <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <canvas id="particles" class="absolute inset-0"></canvas>
+<body class="bg-gray-900 text-white">
+  <canvas id="particles" class="fixed inset-0 z-0"></canvas>
+
+  <header class="relative min-h-screen flex items-center justify-center">
     <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover z-0">
-      <source src="https://cdn.pixabay.com/video/2024/07/10/219009_tiny.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-purple-and-blue-background-3163-large.mp4" type="video/mp4">
     </video>
     <div class="absolute inset-0 bg-gradient-to-r z-10"></div>
     <nav class="absolute top-0 w-full z-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold font-orbitron" data-i18n="company-name">Apolo-net</a>
+        <h1 class="text-2xl font-bold font-orbitron" data-i18n="company-name">Apolo-net</h1>
         <div class="flex space-x-4 items-center">
-          <a href="#company" class="text-gray-300 hover:text-cyan-300 font-bold" data-i18n="nav-about">About</a>
-          <a href="#products" class="text-gray-300 hover:text-cyan-300 font-bold" data-i18n="nav-technology">Technology</a>
-          <a href="#products2" class="text-gray-300 hover:text-cyan-300 font-bold" data-i18n="nav-products">Our Products</a>
-          <select id="language-switcher" class="bg-gray-800 text-gray-300 p-2 rounded">
+          <a href="#company" class="text-white hover:bg-blue-600 px-3 py-2 rounded" data-i18n="nav-about">About</a>
+          <a href="#products" class="text-white hover:bg-blue-600 px-3 py-2 rounded" data-i18n="nav-technology">Technology</a>
+          <a href="#products2" class="text-white hover:bg-blue-600 px-3 py-2 rounded" data-i18n="nav-products">Our Products</a>
+          <select id="language-switcher" class="bg-gray-800 text-white px-3 py-2 rounded">
             <option value="en">English</option>
             <option value="es">Español</option>
             <option value="zh">中文</option>
@@ -32,91 +33,175 @@
       </div>
     </nav>
     <div class="text-center z-20">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4"><span id="typed"></span></h1>
-      <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto" data-i18n="hero-subtitle">Innovative Technology Solutions for a Connected Future</p>
-      <button id="contact-btn" class="bg-cyan-500 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-cyan-400 pulse" data-i18n="hero-cta">Contact Us</button>
+      <h1 class="text-4xl md:text-6xl font-bold font-orbitron mb-4"><span id="typed"></span></h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto mb-6" data-i18n="hero-subtitle">Innovative Technology Solutions for a Connected Future</p>
+      <button id="contact-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full pulse" data-i18n="hero-cta">Contact Us</button>
     </div>
   </header>
+
   <section id="company" class="py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-orbitron" data-i18n="company-title">About Us</h2>
-      <p class="text-lg md:text-xl text-center max-w-3xl mx-auto mb-12 fade-in" data-i18n="company-description">We are a leading technology company delivering innovative, scalable solutions to empower businesses in a connected world.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 font-orbitron" data-i18n="company-title">About Us</h2>
+      <p class="text-lg text-center max-w-3xl mx-auto mb-12 animate-slide-up" data-i18n="company-description">We are a leading technology company delivering innovative, scalable solutions to empower businesses in a connected world.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="feature-card bg-gray-900 p-6 rounded-lg text-center fade-in">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="company-feature1-title">Innovation</h3>
+        <div class="feature-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="tech-diversity-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="company-feature1-title">Innovation</h3>
           <p data-i18n="company-feature1-description">Leading the industry with groundbreaking technology.</p>
         </div>
-        <div class="feature-card bg-gray-900 p-6 rounded-lg text-center fade-in">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="company-feature2-title">Reliability</h3>
+        <div class="feature-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="professional-capability-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="company-feature2-title">Reliability</h3>
           <p data-i18n="company-feature2-description">Trusted by businesses worldwide for consistent performance.</p>
         </div>
-        <div class="feature-card bg-gray-900 p-6 rounded-lg text-center fade-in">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="company-feature3-title">Support</h3>
+        <div class="feature-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="continuous-support-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="company-feature3-title">Support</h3>
           <p data-i18n="company-feature3-description">24/7 customer support to ensure your success.</p>
         </div>
       </div>
     </div>
   </section>
+
   <section id="products" class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-orbitron" data-i18n="products-title">Our Core Technology Services</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 font-orbitron" data-i18n="products-title">Our Core Technology Services</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="product-card bg-gray-800 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product1-title">ERP System</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="erp-system-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product1-title">ERP System</h3>
           <p data-i18n="product1-description">Covers finance, inventory, HR, and more to enhance enterprise management efficiency.</p>
         </div>
-        <div class="product-card bg-gray-800 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product2-title">AI Platform</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="ai-platform-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product2-title">AI Platform</h3>
           <p data-i18n="product2-description">Provides AI modeling, data analytics, and intelligent recommendations to drive business decisions.</p>
         </div>
-        <div class="product-card bg-gray-800 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product3-title">Intelligent Video Retrieval</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="video-retrieval-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product3-title">Intelligent Video Retrieval</h3>
           <p data-i18n="product3-description">Leverages image recognition and deep learning for precise search of massive video content.</p>
         </div>
-        <div class="product-card bg-gray-800 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product4-title">Custom Development</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="custom-dev-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product4-title">Custom Development</h3>
           <p data-i18n="product4-description">Builds tailored software systems to flexibly adapt to various business processes.</p>
         </div>
       </div>
     </div>
   </section>
+
   <section id="products2" class="py-16 bg-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-orbitron" data-i18n="products2-title">Our Products</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 font-orbitron" data-i18n="products2-title">Our Products</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="product-card bg-gray-900 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product5-title">Aicoffi ERP</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="aicoffi-erp-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product5-title">Aicoffi ERP</h3>
           <p data-i18n="product5-description">A comprehensive ERP system integrating finance, inventory, procurement, and HR modules to boost operational efficiency and decision accuracy.</p>
         </div>
-        <div class="product-card bg-gray-900 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product6-title">Aicoffi TPV</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="aicoffi-tpv-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product6-title">Aicoffi TPV</h3>
           <p data-i18n="product6-description">An efficient Point of Sale system supporting fast transaction processing, inventory synchronization, and sales analytics, ideal for retail and hospitality.</p>
         </div>
-        <div class="product-card bg-gray-900 p-6 rounded-lg animate-slide-up">
-          <h3 class="text-xl font-semibold mb-4" data-i18n="product7-title">Aicoffi App</h3>
+        <div class="product-card bg-gray-700 p-6 rounded-lg text-center fade-in" id="aicoffi-app-card">
+          <h3 class="text-xl font-bold mb-2 font-orbitron" data-i18n="product7-title">Aicoffi App</h3>
           <p data-i18n="product7-description">Leverages AI technology to intelligently scan invoices, automate accounting, and significantly save time.</p>
         </div>
       </div>
     </div>
   </section>
-  <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-    <div class="bg-gray-800 p-8 rounded-lg max-w-md w-full">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold font-orbitron" data-i18n="contact-title">Contact Us</h2>
-        <button id="close-contact-modal" class="text-gray-300 hover:text-cyan-300">×</button>
-      </div>
+
+  <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="contact-detail-content modal-content bg-transparent p-8 rounded-lg max-w-md mx-auto">
+      <h2 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="contact-title">Contact Us</h2>
       <ul class="text-lg">
         <li data-i18n="contact-email">Email: info@apolo-net.com</li>
         <li data-i18n="contact-phone">Phone: +34 123 456 789</li>
         <li data-i18n="contact-whatsapp">WhatsApp: +34 987 654 321</li>
         <li data-i18n="contact-wechat">WeChat: ApoloNet_Official</li>
       </ul>
+      <button id="close-contact-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">Close</button>
     </div>
   </div>
+
+  <div id="tech-detail-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="tech-detail-content modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="company-feature1-title">技术多元化</h3>
+      <p class="text-lg" data-i18n="company-feature1-description-detail">我们提供覆盖企业管理、AI智能分析、视频图像处理等多个技术领域的解决方案。我们的技术栈包括先进的ERP系统、基于深度学习的视频检索技术以及定制化的大数据分析平台，助力企业实现全面数字化转型。</p>
+      <button id="close-tech-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="professional-capability-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="company-feature2-title">专业能力</h3>
+      <p class="text-lg" data-i18n="company-feature2-description-detail">我们的专家团队由多领域专业人士组成，涵盖软件开发、数据分析、人工智能和企业管理。我们通过深入了解客户需求，提供高质量、定制化的解决方案，助力企业在竞争中脱颖而出。</p>
+      <button id="close-professional-capability-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="continuous-support-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="company-feature3-title">持续支持</h3>
+      <p class="text-lg" data-i18n="company-feature3-description-detail">我们提供从方案设计到部署维护的全程技术支持。我们的团队通过7x24小时服务、定期系统优化和快速响应机制，确保客户系统稳定运行，最大化业务价值。</p>
+      <button id="close-continuous-support-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="erp-system-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product1-title">ERP系统</h3>
+      <p class="text-lg" data-i18n="product1-description-detail">我们的ERP系统整合财务管理、库存控制、人力资源管理和供应链优化等功能模块，提供实时数据洞察和流程自动化，帮助企业提升管理效率和决策能力。</p>
+      <button id="close-erp-system-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="ai-platform-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product2-title">人工智能平台</h3>
+      <p class="text-lg" data-i18n="product2-description-detail">人工智能平台提供先进的AI建模工具、数据分析功能和智能推荐系统，广泛应用于市场预测、客户行为分析和运营优化，帮助企业实现数据驱动的决策。</p>
+      <button id="close-ai-platform-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="video-retrieval-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product3-title">视频智能检索</h3>
+      <p class="text-lg" data-i18n="product3-description-detail">利用图像识别和深度学习技术，我们的视频智能检索系统能够从海量视频内容中精准提取目标信息，适用于安防监控、内容管理和媒体分析等场景。</p>
+      <button id="close-video-retrieval-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="custom-dev-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product4-title">定制化开发</h3>
+      <p class="text-lg" data-i18n="product4-description-detail">我们根据客户独特需求，开发定制化软件系统，灵活适配各种业务流程，确保系统与企业战略无缝衔接，提升运营效率和市场竞争力。</p>
+      <button id="close-custom-dev-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="aicoffi-erp-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product5-title">Aicoffi ERP</h3>
+      <p class="text-lg" data-i18n="product5-description-detail">Aicoffi ERP 是一个综合性企业资源管理系统，整合财务、库存、采购和人力资源模块，提供实时数据分析和自动化流程，显著提升运营效率和决策精准性。</p>
+      <button id="close-aicoffi-erp-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="aicoffi-tpv-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product6-title">Aicoffi TPV</h3>
+      <p class="text-lg" data-i18n="product6-description-detail">Aicoffi TPV 是一个高效的销售终端系统，支持快速交易处理、实时库存同步和详细销售分析，专为零售和餐饮行业设计，提升客户体验和业务效率。</p>
+      <button id="close-aicoffi-tpv-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
+  <div id="aicoffi-app-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+    <div class="modal-content bg-transparent p-8 rounded-lg max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-4 font-orbitron text-cyan-300" data-i18n="product7-title">Aicoffi App</h3>
+      <p class="text-lg" data-i18n="product7-description-detail">Aicoffi App 利用 AI 技术实现智能发票扫描和自动会计处理，简化财务流程，显著减少手动操作时间，提升企业财务管理效率。</p>
+      <button id="close-aicoffi-app-modal" class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full">关闭</button>
+    </div>
+  </div>
+
   <footer class="bg-gray-900 py-8 text-center">
     <p data-i18n="footer-copyright">© 2025 Apolo-net. All rights reserved.</p>
-    <p>Contact us: <a href="mailto:info@apolo-net.com" class="text-cyan-500 hover:text-cyan-400">info@apolo-net.com</a></p>
+    <p>Contact us: <a href="mailto:info@apolo-net.com" class="underline">info@apolo-net.com</a></p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -6,10 +6,16 @@ body {
   overflow-x: hidden;
 }
 
+body.blurred :where(:not(#contact-modal, #tech-detail-modal, #professional-capability-modal, #continuous-support-modal, #erp-system-modal, #ai-platform-modal, #video-retrieval-modal, #custom-dev-modal, #aicoffi-erp-modal, #aicoffi-tpv-modal, #aicoffi-app-modal, #contact-modal *, #tech-detail-modal *, #professional-capability-modal *, #continuous-support-modal *, #erp-system-modal *, #ai-platform-modal *, #video-retrieval-modal *, #custom-dev-modal *, #aicoffi-erp-modal *, #aicoffi-tpv-modal *, #aicoffi-app-modal *)) {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
 .product-card, .feature-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .product-card:hover, .feature-card:hover {
@@ -37,7 +43,7 @@ header video {
 }
 
 header .bg-gradient-to-r {
-  background: linear-gradient(135deg, rgba(0, 71, 171, 0.8), rgba(128, 0, 255, 0.8), rgba(0, 229, 255, 0.4));
+  background: linear-gradient(135deg, rgba(0, 0, 139, 0.8), rgba(0, 191, 255, 0.8), rgba(75, 0, 130, 0.4));
   animation: sciFiGradient 8s ease-in-out infinite;
 }
 
@@ -80,6 +86,22 @@ section {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes ledBorder {
+  0% { box-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6); }
+  50% { box-shadow: 0 0 15px rgba(0, 229, 255, 1), 0 0 30px rgba(0, 229, 255, 0.8); }
+  100% { box-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.6); }
+}
+
+@keyframes modalScale {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes modalShrink {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0); opacity: 0; }
+}
+
 .fade-in {
   opacity: 0;
   animation: fadeIn 0.8s ease-out forwards;
@@ -99,7 +121,6 @@ section {
   animation: pulse 2s infinite;
 }
 
-/* 新增样式：为 About, Products, Plans 标题设置科技感字体 */
 #company h2, #products h2, #products2 h2 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
@@ -107,15 +128,23 @@ section {
   text-transform: uppercase;
 }
 
-/* Modal styles */
-#contact-modal {
+#contact-modal, #tech-detail-modal, #professional-capability-modal, #continuous-support-modal, #erp-system-modal, #ai-platform-modal, #video-retrieval-modal, #custom-dev-modal, #aicoffi-erp-modal, #aicoffi-tpv-modal, #aicoffi-app-modal {
   transition: opacity 0.3s ease;
   z-index: 100;
 }
 
-#contact-modal .bg-gray-800 {
-  background: linear-gradient(135deg, rgba(0, 71, 171, 0.9), rgba(128, 0, 255, 0.9), rgba(0, 229, 255, 0.5));
-  box-shadow: 0 10px 20px rgba(0, 229, 255, 0.5);
+.modal-content {
+  border: 2px solid rgba(0, 229, 255, 0.8);
+  animation: ledBorder 1.5s infinite;
+  backdrop-filter: blur(10px);
+}
+
+.modal-content.open {
+  animation: modalScale 0.5s ease-out forwards, ledBorder 1.5s infinite;
+}
+
+.modal-content.closing {
+  animation: modalShrink 0.5s ease-out forwards, ledBorder 1.5s infinite;
 }
 
 #contact-modal ul li {
@@ -134,9 +163,16 @@ section {
   letter-spacing: 1px;
 }
 
-/* 响应式设计 */
+#contact-modal.hidden, #tech-detail-modal.hidden, #professional-capability-modal.hidden, #continuous-support-modal.hidden, #erp-system-modal.hidden, #ai-platform-modal.hidden, #video-retrieval-modal.hidden, #custom-dev-modal.hidden, #aicoffi-erp-modal.hidden, #aicoffi-tpv-modal.hidden, #aicoffi-app-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#contact-modal:not(.hidden), #tech-detail-modal:not(.hidden), #professional-capability-modal:not(.hidden), #continuous-support-modal:not(.hidden), #erp-system-modal:not(.hidden), #ai-platform-modal:not(.hidden), #video-retrieval-modal:not(.hidden), #custom-dev-modal:not(.hidden), #aicoffi-erp-modal:not(.hidden), #aicoffi-tpv-modal:not(.hidden), #aicoffi-app-modal:not(.hidden) {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
-  /* 调整 header 内容 */
   header {
     min-height: 70vh;
     padding: 1rem;
@@ -155,7 +191,6 @@ section {
     background: linear-gradient(135deg, rgba(0, 71, 171, 0.9), rgba(128, 0, 255, 0.9), rgba(0, 229, 255, 0.6));
   }
 
-  /* 导航栏调整 */
   nav .max-w-7xl {
     flex-direction: column;
     align-items: flex-start;
@@ -173,7 +208,6 @@ section {
     font-size: 1rem;
   }
 
-  /* 卡片布局调整 */
   .product-card, .feature-card {
     transform: none;
   }
@@ -183,7 +217,6 @@ section {
     box-shadow: 0 5px 10px rgba(0, 229, 255, 0.3);
   }
 
-  /* 调整 section 间距和字体 */
   section {
     padding: 2rem 1rem;
     scroll-margin-top: 60px;
@@ -197,27 +230,24 @@ section {
     font-size: 1rem;
   }
 
-  /* 调整 grid 布局 */
   #company .grid, #products .grid, #products2 .grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  /* 模态框调整 */
-  #contact-modal .max-w-md {
+  .modal-content {
     width: 90%;
     padding: 1.5rem;
   }
 
-  #contact-modal h2 {
+  .modal-content h2, .modal-content h3 {
     font-size: 1.5rem;
   }
 
-  #contact-modal ul {
+  .modal-content ul, .modal-content p {
     font-size: 1rem;
   }
 
-  /* 页脚调整 */
   footer {
     padding: 1.5rem;
     font-size: 0.9rem;
@@ -247,6 +277,14 @@ section {
   }
 
   .product-card p, .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  .modal-content h2, .modal-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .modal-content ul, .modal-content p {
     font-size: 0.9rem;
   }
 }
